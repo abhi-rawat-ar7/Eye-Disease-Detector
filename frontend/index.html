@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Based Eye Disease Detection</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts - Inter for a clean look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>👁️ AI-Based Eye Disease Detection</h1>
+        <p>Upload a fundus camera image to detect potential eye diseases.</p>
+
+        <div class="upload-area">
+            <input type="file" id="imageUpload" accept="image/*">
+            <label for="imageUpload" class="upload-button">Choose Image</label>
+            <span id="fileName">No file chosen</span>
+        </div>
+
+        <button id="predictButton" class="predict-button" disabled>Predict Disease</button>
+
+        <div id="imagePreview" class="image-preview">
+            <img id="previewImage" src="" alt="Image Preview" style="display: none;">
+        </div>
+
+        <div id="resultArea" class="result-area" style="display: none;">
+            <h2>Prediction Result:</h2>
+            <p><strong>Status:</strong> <span id="statusMessage"></span></p>
+            <p><strong>Predicted Disease:</strong> <span id="predictedDisease"></span></p>
+            <p><strong>Confidence:</strong> <span id="confidenceScore"></span></p>
+            <div id="allProbabilities" class="probabilities-container">
+                <h3>All Probabilities:</h3>
+                <ul id="probabilitiesList">
+                    <!-- Probabilities will be injected here by JavaScript -->
+                </ul>
+            </div>
+        </div>
+
+        <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+            <div class="spinner"></div>
+            <p>Analyzing image... Please wait.</p>
+        </div>
+
+        <div id="errorBox" class="error-box" style="display: none;">
+            <p id="errorMessage"></p>
+            <button id="closeError" class="close-button">X</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
