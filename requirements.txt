@@ -2,4 +2,4 @@ streamlit==1.22.0
 tensorflow==2.13.0
 numpy==1.23.5
 Pillow
-protobuf==3.19.6 # This version is known to be compatible with TF 2.10.0
+protobuf==3.20.3 # This version is known to be compatible with TF 2.10.0
