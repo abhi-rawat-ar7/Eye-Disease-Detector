@@ -1,4 +1,1 @@
-streamlit
-tensorflow==2.10.0 # Specify a stable version for deployment stability
-numpy
-Pillow
+
