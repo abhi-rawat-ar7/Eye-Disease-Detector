@@ -1,4 +1,4 @@
 streamlit
-tensorflow==2.10.0 # Specify a stable version for deployment stability
+tensorflow==2.9.0
 numpy
 Pillow
