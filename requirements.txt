@@ -1,5 +1,5 @@
-streamlit==1.22.0
-tensorflow==2.17.0 # Use the version you confirmed in Colab
+streamlit==1.25.0
+tensorflow==2.18.0 # Use the version you confirmed in Colab
 Pillow
 # REMOVE explicit numpy and protobuf lines
 # Let Streamlit's environment pick compatible versions for TF 2.17.0
