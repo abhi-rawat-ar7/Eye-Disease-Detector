@@ -27,7 +27,6 @@ streamlit run streamlit_app.py
 This will open a new tab in your web browser, typically at http://localhost:8501.
 
 Demo at :- 
-https://github.com/abhi-rawat-ar7/Eye-Disease-Detector
 https://eye-disease-detector-using-ai-ml.streamlit.app/
 
 ![Screenshot (542)](https://github.com/user-attachments/assets/b7210411-a57c-49cf-8944-5f54962cd383)
