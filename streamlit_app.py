@@ -5,7 +5,7 @@ from PIL import Image
 import os
 import json # Import the json module to parse label_mapping.json
 import io # Import io for BytesIO
-import pandas as pd # Explicitly import pandas for debugging DataFrame creation
+import pandas as pd # Explicitly import pandas as it's used for DataFrame creation
 
 # --- Streamlit UI Layout (MUST BE FIRST Streamlit command in the script) ---
 st.set_page_config(
@@ -115,32 +115,17 @@ if uploaded_file is not None:
                 st.markdown("---")
                 st.subheader("All Probabilities:")
 
-                # --- DEBUGGING ADDITIONS START HERE ---
-                st.write(f"Debug: type(predicted_probabilities): {type(predicted_probabilities)}")
-                st.write(f"Debug: predicted_probabilities content (first 5): {predicted_probabilities[:5] if isinstance(predicted_probabilities, np.ndarray) else predicted_probabilities}")
-                st.write(f"Debug: len(predicted_probabilities): {len(predicted_probabilities) if hasattr(predicted_probabilities, '__len__') else 'N/A'}")
-                st.write(f"Debug: type(class_names): {type(class_names)}")
-                st.write(f"Debug: class_names content (first 5): {class_names[:5]}")
-                st.write(f"Debug: len(class_names): {len(class_names)}")
-                # --- DEBUGGING ADDITIONS END HERE ---
-
                 if len(predicted_probabilities) == len(class_names):
                     try:
-                        # Attempt to create DataFrame to catch errors here
                         prob_data_dict = {
                             "Disease": class_names,
                             "Probability": [f"{(p * 100):.2f}%" for p in predicted_probabilities]
                         }
-                        # Convert to Pandas DataFrame explicitly before passing to st.dataframe
                         prob_data = pd.DataFrame(prob_data_dict)
-                        st.write(f"Debug: Successfully created pandas DataFrame. Type: {type(prob_data)}")
-                        st.write(f"Debug: First 5 rows of prob_data DataFrame:\n{prob_data.head()}")
 
-                        st.dataframe(prob_data, hide_index=True) # Line 147 in original code, adjust after adding debugs
+                        st.dataframe(prob_data, hide_index=True)
                     except Exception as e:
                         st.error(f"Error creating or displaying probability DataFrame: {e}")
-                        st.write("Debug: Raw data for DataFrame creation:")
-                        st.json({"Disease": class_names, "Probability": [str(p) for p in predicted_probabilities]}) # Display raw data as JSON
                 else:
                     st.warning("Mismatch between number of predicted probabilities and class names. Cannot display all probabilities correctly.")
                     st.write("Predicted probabilities (raw):", predicted_probabilities)
