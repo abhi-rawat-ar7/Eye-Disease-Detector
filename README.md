@@ -25,3 +25,5 @@ Step 3: Run Streamlit App:
 Open new terminal, run below command :-
 streamlit run streamlit_app.py
 This will open a new tab in your web browser, typically at http://localhost:8501.
+
+![Screenshot (545)](https://github.com/user-attachments/assets/d7793a53-23ae-4389-aa0a-6d05114875ca)
